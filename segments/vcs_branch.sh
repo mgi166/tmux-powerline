@@ -1,7 +1,7 @@
 # Prints current branch in a VCS directory if it could be detected.
 
 # Source lib to get the function get_tmux_pwd
-#source "$HOME/.tmux/tmux-shells/tmux_adapter.sh"
+source "${TMUX_POWERLINE_DIR_LIB}/tmux_adapter.sh"
 
 branch_symbol="⭠"
 git_colour="5"
@@ -10,8 +10,8 @@ hg_colour="45"
 SEGMENT_FG=123 # colour number
 
 run_segment() {
-    # tmux_path=$(get_tmux_cwd)
-    # cd "$tmux_path"
+    tmux_path=$(get_tmux_cwd)
+    cd "$tmux_path"
     branch=""
     if [ -n "${git_branch=$(__parse_git_branch)}" ]; then
         branch="$git_branch"
